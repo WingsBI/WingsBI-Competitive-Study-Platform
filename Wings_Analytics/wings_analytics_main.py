@@ -1,3 +1,4 @@
+# wings_analytics_main.py
 import time
 import pandas as pd
 from selenium import webdriver
@@ -19,7 +20,7 @@ def execute(email, password, questions_df):
     for question in questions:
         add_new_question(driver, question)
         time.sleep(5)
-        wings_capture_screenshot(questions_df.iloc[0, 10], question)
+        wings_capture_screenshot(question)
         time.sleep(3)
 
     driver.quit()
