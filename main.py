@@ -1,3 +1,4 @@
+#main.py
 import pandas as pd
 import time
 import os
@@ -28,9 +29,12 @@ wings_password = questions_df.iloc[0, 6]  # Assuming column C contains password
 zoho_email = questions_df.iloc[1, 5]  # Assuming column B contains email
 zoho_password = questions_df.iloc[1, 6]  # Assuming column C contains password
 
-# Paths to the image folders
-wings_folder = questions_df.iloc[0, 10]
-zoho_folder = questions_df.iloc[1, 10]
+# Get the directory of the current script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Define common folder paths as subdirectories of the script directory
+wings_folder = os.path.join(script_dir, 'Screenshots','Wings_Analytics_Sc')
+zoho_folder = os.path.join(script_dir,  'Screenshots','Zoho_Analytics_Sc')
 
 # Run Wings Analytics
 wings_Analytics = execute(wings_email, wings_password, questions_df)
